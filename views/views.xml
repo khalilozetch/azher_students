@@ -1,0 +1,117 @@
+<odoo>
+  <data>
+      <record id="azher_students_tree_view" model="ir.ui.view">
+          <field name="name">azher.students.tree.view</field>
+          <field name="model">azher.student</field>
+          <field name="arch" type="xml">
+              <tree string="">
+                  <field name="name"/>
+                  <field name="age"/>
+              </tree>
+          </field>
+      </record>
+      <record id="azher_students_form_view" model="ir.ui.view">
+          <field name="name">azher.students.form.view</field>
+          <field name="model">azher.student</field>
+          <field name="arch" type="xml">
+              <form string="Student info">
+                  <sheet>
+                      <group >
+                          <group string="Basic info">
+                              <field name="name"/>
+                              <field name="salary"/>
+                              <field name="image"/>
+                          </group>
+                          <group string="Other info">
+                              <field name="age"/>
+                              <field name="grade"/>
+                              <field name="is_accepted"/>
+                              <field name="track_id"/>
+                          </group>
+                      </group>
+                      <notebook>
+                          <page string="Bio">
+
+                              <field name="bio"/>
+                              <field name="skills_ids" widget="many2many_tags"/>
+
+                          </page>
+                          <page string="cv">
+                              <field name="cv"/>
+                          </page>
+                      </notebook>
+
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record id="azher_track_form_view" model="ir.ui.view">
+          <field name="name">azher.track.form.view</field>
+          <field name="model">azher.track</field>
+          <field name="arch" type="xml">
+              <form string="">
+                  <sheet>
+                      <group>
+                          <field name="name"/>
+                          <field name="students_ids">
+                              <tree editable="top">
+                                  <field name="name"/>
+                                  <field name="salary"/>
+
+                              </tree>
+
+                          </field>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+      <record id="azher_skill_form_view" model="ir.ui.view">
+          <field name="name">azher.skill.form.view</field>
+          <field name="model">azher.skill</field>
+          <field name="arch" type="xml">
+              <form string="">
+                  <sheet>
+                      <group>
+                          <field name="skill"  />
+
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record id="action_student" model="ir.actions.act_window">
+          <field name="name">students</field>
+          <field name="res_model">azher.student</field>
+          <field name="view_mode">tree,form</field>
+          <field name="view_type">form</field>
+      </record>
+
+      <record id="action_track" model="ir.actions.act_window">
+          <field name="name">students</field>
+          <field name="res_model">azher.track</field>
+          <field name="view_mode">tree,form</field>
+          <field name="view_type">form</field>
+      </record>
+
+      <record id="action_skill" model="ir.actions.act_window">
+          <field name="name">students</field>
+          <field name="res_model">azher.skill</field>
+          <field name="view_mode">tree,form</field>
+          <field name="view_type">form</field>
+      </record>
+
+
+      <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+      <menuitem id="azher" name="azher" sequence=""/>
+      <!-- This Menu Item Must have a parent -->
+      <menuitem id="data" name="Data" parent="azher" />
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="students" name="Students" parent="data" action="action_student"/>
+      <menuitem id="track" name="Tracks" parent="data" action="action_track"/>
+      <menuitem id="skill" name="Skills" parent="data" action="action_skill"/>
+
+  </data>
+</odoo>
