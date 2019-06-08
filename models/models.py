@@ -1,7 +1,10 @@
-from odoo import models ,fields
+from odoo import models ,fields,api
+from odoo.odoo.tools import frozendict
+
+
 class AzherStudent(models.Model):
     _name = "azher.student"
-    name = fields.Char(string="Name", required=False, )
+    name = fields.Char(string="Name", required=False )
     age = fields.Integer(string="Age", required=False, )
     salary = fields.Float(string="Salary")
     image = fields.Binary()
@@ -12,11 +15,22 @@ class AzherStudent(models.Model):
     track_id = fields.Many2one(comodel_name="azher.track", string="Track", )
     skills_ids = fields.Many2many(comodel_name="azher.skill", string="Skills", )
 
+    @api.onchange('grade')
+    def onchange_grade(self):
+        if self.grade=='g':
+            self.salary=1000
+        elif self.grade=='vg':
+            self.grade=1200
+        else:
+            self.salary=333
+
 class AzherTrack(models.Model):
     _name = "azher.track"
     _rec_name = 'name'
     students_ids = fields.One2many(comodel_name="azher.student", inverse_name="track_id", string="Students", required=False, )
-    name = fields.Char(string=" Students Name")
+    name = fields.Char(string=" Track Name")
+    is_open=fields.Boolean(string="Open?")
+
 
 class AzherSkill(models.Model):
     _name = "azher.skill"

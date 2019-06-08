@@ -2,19 +2,19 @@
 from odoo import http
 
 # class First(http.Controller):
-#     @http.route('/azher_student/azher_student/', auth='public')
+#     @http.route('/azherSstudent/azherSstudent/', auth='public')
 #     def index(self, **kw):
 #         return "Hello, world"
 
-#     @http.route('/azher_student/azher_student/objects/', auth='public')
+#     @http.route('/azherSstudent/azherSstudent/objects/', auth='public')
 #     def list(self, **kw):
-#         return http.request.render('azher_student.listing', {
-#             'root': '/azher_student/azher_student',
-#             'objects': http.request.env['azher_student.azher_student'].search([]),
+#         return http.request.render('azherSstudent.listing', {
+#             'root': '/azherSstudent/azherSstudent',
+#             'objects': http.request.env['azherSstudent.azherSstudent'].search([]),
 #         })
 
-#     @http.route('/azher_student/azher_student/objects/<model("azher_student.azher_student"):obj>/', auth='public')
+#     @http.route('/azherSstudent/azherSstudent/objects/<model("azherSstudent.azherSstudent"):obj>/', auth='public')
 #     def object(self, obj, **kw):
-#         return http.request.render('azher_student.object', {
+#         return http.request.render('azherSstudent.object', {
 #             'object': obj
 #         })

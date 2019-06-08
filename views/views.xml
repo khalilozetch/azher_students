@@ -19,14 +19,19 @@
                       <group >
                           <group string="Basic info">
                               <field name="name"/>
-                              <field name="salary"/>
+                              <field name="salary" required="True"/>
                               <field name="image"/>
                           </group>
                           <group string="Other info">
                               <field name="age"/>
-                              <field name="grade"/>
+                              <field name="grade"
+                                     attrs="{'required': [('name','=', 'ahmed'),
+                                                          ('age','>', '20')  ]}"/>
+
+
                               <field name="is_accepted"/>
-                              <field name="track_id"/>
+                              <field name="track_id"
+                                     domaim="[('is_open','=', False)]"/>
                           </group>
                       </group>
                       <notebook>
@@ -54,6 +59,7 @@
                   <sheet>
                       <group>
                           <field name="name"/>
+                          <field name="is_open"/>
                           <field name="students_ids">
                               <tree editable="top">
                                   <field name="name"/>

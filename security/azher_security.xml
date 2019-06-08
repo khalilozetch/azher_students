@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="azher_security_category" model="ir.module.category">
+           <field name="name">Employee Roles</field>
+           <field name="sequence" eval="1"/>
+       </record>
+
+        <record id="azher_employee" model="res.groups">
+            <field name="name">Employee</field>
+            <field name="category_id" ref="azher_security_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Employee can CRUD Students only</field>
+        </record>
+        <record id="azher_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="azher_security_category"/>
+            <field name="implied_ids" eval="[(4, ref('azher_employee'))]"/>
+            <field name="comment">Employee can CRUD Students and skills </field>
+        </record>
+
+
+    </data>
+</odoo>

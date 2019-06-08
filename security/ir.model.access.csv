@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_first_first,first.first,model_first_first,,1,1,1,1
+access_azher_employee,Azher Employee,model_azher_student,azherStudent.azher_employee,1,1,1,1
+access_azher_employee,Azher Employee Track,model_azher_track,azherStudent.azher_employee,1,0,0,0
+access_azher_employee,Azher Employee Skill,model_azher_skill,azherStudent.azher_employee,1,0,0,0
+access_azher_manager,Azher Manager Track,model_azher_track,azherStudent.azher_manager,1,1,1,1
+access_azher_manager,Azher Manager Skill,model_azher_skill,azherStudent.azher_manager,1,1,1,1
